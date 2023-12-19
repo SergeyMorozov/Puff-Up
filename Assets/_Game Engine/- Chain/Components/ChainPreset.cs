@@ -5,7 +5,6 @@ namespace GAME
 {
     public class ChainPreset : ScriptableObject
     {
-        public List<GameObject> ChainParts;
     }
 }
 
