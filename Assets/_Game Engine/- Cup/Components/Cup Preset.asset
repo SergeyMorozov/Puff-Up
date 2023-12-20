@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b33dbe7617d2d984e9dd34fc7c592b2c, type: 3}
-  m_Name: Ball Settings
+  m_Script: {fileID: 11500000, guid: 5b47617c54172004db1136e10931167e, type: 3}
+  m_Name: Cup Preset
   m_EditorClassIdentifier: 
+  Name: 
+  Icon: {fileID: 0}
+  Prefab: {fileID: 0}

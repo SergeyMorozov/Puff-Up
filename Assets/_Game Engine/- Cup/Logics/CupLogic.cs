@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace  GAME
 {
-    public class BallLogic : MonoBehaviour
+    public class CupLogic : MonoBehaviour
     {
         private void Awake()
         {

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 namespace GAME
 {
     [Serializable]
-    public class BallSystemData
+    public class CupSystemData
     {
-        public List<BallObject> Balls;
+        public List<CupObject> listObjects;
     }
 }
