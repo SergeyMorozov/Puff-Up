@@ -35,6 +35,37 @@ Transform:
   - {fileID: 1987141826384303073}
   m_Father: {fileID: 8029983410570142682}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1469779729951269324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2956548459213821217}
+  m_Layer: 0
+  m_Name: Chain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2956548459213821217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469779729951269324}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8029983410570142682}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1645914068759167373
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,10 +297,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8029983410570142682}
-  - component: {fileID: 5640968670606299948}
   - component: {fileID: 458522369918517832}
   m_Layer: 0
-  m_Name: Cup
+  m_Name: Cup Ref 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,6 +318,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2956548459213821217}
   - {fileID: 4811608863788948694}
   - {fileID: 5010312483862925998}
   - {fileID: 1081995962472950132}
@@ -296,21 +327,6 @@ Transform:
   - {fileID: 4955873119766919331}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5640968670606299948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4242093325230773032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebd6dfc4e136a144ae9bf7ca58ff58d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Preset: {fileID: 0}
-  Ref: {fileID: 458522369918517832}
-  Chain: {fileID: 0}
 --- !u!114 &458522369918517832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ed78226638917458f827bf84403d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChainPoint: {fileID: 2956548459213821217}
   MeshBorder:
   - {fileID: 8997792010449256348}
   - {fileID: 30247818126972071}

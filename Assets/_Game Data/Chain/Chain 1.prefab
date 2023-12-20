@@ -2644,7 +2644,7 @@ GameObject:
   - component: {fileID: 8783418006087936190}
   - component: {fileID: 8537696979982686581}
   m_Layer: 0
-  m_Name: Chain
+  m_Name: Chain 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2680,7 +2680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092fc860875ceb948afcf5c908adb5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Preset: {fileID: 0}
+  Preset: {fileID: 11400000, guid: 1ce869773394959438f04d59fa7fb43b, type: 2}
   Ref: {fileID: 8537696979982686581}
 --- !u!114 &8537696979982686581
 MonoBehaviour:
