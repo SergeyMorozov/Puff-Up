@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GAME
@@ -6,6 +7,9 @@ namespace GAME
     {
         public CupPreset Preset;
         public CupRef Ref;
+
+        public ChainObject Chain;
+
     }
 }
 
