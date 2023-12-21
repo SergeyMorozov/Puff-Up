@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58928957c190987429b986d91a5f844c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collider: {fileID: 0}
+  Collider: {fileID: 6928719712646929483}
   Mesh: {fileID: 6447992260584014019}
 --- !u!1 &6572562307860830221
 GameObject:

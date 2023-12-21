@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Preset: {fileID: 0}
   Ref: {fileID: 6753269234067023810}
+  Value: 0
 --- !u!114 &6753269234067023810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +85,7 @@ Rigidbody2D:
   m_LinearDrag: 1
   m_AngularDrag: 1
   m_GravityScale: -1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 728f19ec71dd36a4e83cea37e5f4b2a2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
