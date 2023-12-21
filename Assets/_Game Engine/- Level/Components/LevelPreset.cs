@@ -7,9 +7,7 @@ namespace GAME
 {
     public class LevelPreset : ScriptableObject
     {
-        public string Name;
-        public Sprite Icon;
-        public LevelObject Prefab;
+        public List<CupObject> Cups;
     }
 }
 

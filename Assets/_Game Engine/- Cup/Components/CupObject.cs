@@ -22,15 +22,15 @@ namespace GAME
     public class ShapeData
     {
         public ShapeObject Shape;
-        [Range(0f, 1f)] public float Position;
+        [Range(0f, 1f)] public float Position = 0.5f;
     }
     
     [Serializable]
     public class ShapeData2D
     {
         public ShapeObject Shape;
-        [Range(0f, 1f)] public float PositionX;
-        [Range(0f, 1f)] public float PositionY;
+        [Range(0f, 1f)] public float PositionX = 0.5f;
+        [Range(0f, 1f)] public float PositionY = 0.5f;
     }
 
 }

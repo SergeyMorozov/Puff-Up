@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 253937819}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -32}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 30.000002
     OrthographicSize: 10
-    NearClipPlane: 30
+    NearClipPlane: 25
     FarClipPlane: 35
     Dutch: 0
     ModeOverride: 0
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -32}
+  m_FollowOffset: {x: 0, y: 0, z: -30}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -736,13 +736,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615194134}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27407664, y: 0.10214754, z: -0.029290332, w: 0.955819}
+  m_LocalRotation: {x: 0.17269689, y: 0.10294044, z: -0.018151173, w: 0.9794129}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 32, y: 12.2, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 12, z: 0}
 --- !u!1001 &1076510572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1078,7 +1078,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 30
+  near clip plane: 25
   far clip plane: 35
   field of view: 30.000002
   orthographic: 0
@@ -1107,7 +1107,7 @@ Transform:
   m_GameObject: {fileID: 1452304887}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -32}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

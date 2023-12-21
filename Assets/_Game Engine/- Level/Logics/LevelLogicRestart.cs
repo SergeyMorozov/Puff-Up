@@ -20,8 +20,8 @@ namespace  GAME
             Destroy(LevelSystem.Data.CurrentLevel.gameObject);
 
             LevelPreset levelPreset = LevelSystem.Settings.Levels[0];
-            LevelObject level = Tools.AddObject<LevelObject>(levelPreset.Prefab, null);
-            LevelSystem.Data.CurrentLevel = level;
+            // LevelObject level = Tools.AddObject<LevelObject>(levelPreset.Prefab, null);
+            // LevelSystem.Data.CurrentLevel = level;
             
             LevelSystem.Events.LevelLoad?.Invoke();
         }

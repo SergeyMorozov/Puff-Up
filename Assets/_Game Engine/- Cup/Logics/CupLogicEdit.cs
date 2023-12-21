@@ -14,10 +14,12 @@ namespace  GAME
         private static List<ShapeData> _borderLeft;
         private static List<ShapeData> _borderRight;
         private static List<ShapeData> _borderBottom;
+        private static List<ShapeData2D> _inside;
 
         public static void CupView(CupObject cup)
         {
-            if(!cup.gameObject.scene.IsValid()) return;
+            if(!cup.gameObject.scene.IsValid() ||
+               Application.isPlaying) return;
 
             if (_cup != cup)
             {
@@ -44,6 +46,12 @@ namespace  GAME
                         if (shapeData.Shape != null) DestroyImmediate(shapeData.Shape.gameObject);
                     }
 
+                if (_inside != null)
+                    foreach (ShapeData2D shapeData in _inside)
+                    {
+                        if (shapeData.Shape != null) DestroyImmediate(shapeData.Shape.gameObject);
+                    }
+
                 if (_cup != null)
                 {
                     DestroyImmediate(_cup.gameObject);
@@ -58,10 +66,12 @@ namespace  GAME
             if (_borderLeft == null) _borderLeft = new List<ShapeData>();
             if (_borderRight == null) _borderRight = new List<ShapeData>();
             if (_borderBottom == null) _borderBottom = new List<ShapeData>();
+            if (_inside == null) _inside = new List<ShapeData2D>();
 
             BorderShapes(_borderLeft, _cup.BorderLeft, 0);
             BorderShapes(_borderRight, _cup.BorderRight, 1);
             BorderShapes(_borderBottom, _cup.BorderBottom, 2);
+            BorderShapes2D(_inside, _cup.Inside);
         }
 
         private static void CupRef()
@@ -142,7 +152,7 @@ namespace  GAME
                         
                         case 2:
                             borderData.Shape.transform.position = _cup.Ref.Shapes[2].transform.position +
-                                                                  new Vector3((shapeData.Position - 0.5f) * 8, 0, 0);
+                                                                  new Vector3((shapeData.Position - 0.5f) * 6.4f, 0, 0);
                             break;
 
                     }
@@ -152,45 +162,53 @@ namespace  GAME
 
             for (int i = listCup.Count; i < list.Count; i++)
             {
-                DestroyImmediate(list[i].Shape.gameObject);
+                if(list[i].Shape != null) DestroyImmediate(list[i].Shape.gameObject);
                 list.RemoveAt(i);
                 i--;
             }
         }
 
-        /*
-        private void Update()
+        private static void BorderShapes2D(List<ShapeData2D> list, List<ShapeData2D> listCup)
         {
-            if(Application.isPlaying) return;
-
-            if (_cup == null && _cupRef != null)
+            for (var i = 0; i < listCup.Count; i++)
             {
-                if(_cupRef != null) DestroyImmediate(_cupRef.gameObject);
-                if(_chain != null) DestroyImmediate(_chain.gameObject);
-
-                foreach (ShapeData shapeData in _borderLeft)
+                if (i >= list.Count)
                 {
-                    if(shapeData.Shape != null) DestroyImmediate(shapeData.Shape.gameObject);
+                    list.Add(new ShapeData2D());
                 }
 
-                foreach (ShapeData shapeData in _borderRight)
+                var borderData = list[i];
+                var shapeData = listCup[i];
+                if (shapeData == null || shapeData.Shape == null)
                 {
-                    if(shapeData.Shape != null) DestroyImmediate(shapeData.Shape.gameObject);
+                    if (borderData != null && borderData.Shape != null)
+                        DestroyImmediate(borderData.Shape.gameObject);
+                }
+                else
+                {
+                    if (borderData.Shape == null)
+                    {
+                        ShapeObject shape = Tools.AddObject<ShapeObject>(shapeData.Shape, _cup.transform);
+                        shape.name = shapeData.Shape.name;
+                        borderData.Shape = shape;
+                    }
                 }
 
-                foreach (ShapeData shapeData in _borderBottom)
+                if (borderData.Shape != null)
                 {
-                    if(shapeData.Shape != null) DestroyImmediate(shapeData.Shape.gameObject);
+                    borderData.Shape.transform.position = _cup.Ref.Shapes[3].transform.position +
+                                                          new Vector3((shapeData.PositionX - 0.5f) * 8,
+                                                              (shapeData.PositionY - 0.5f) * 11, 0);
                 }
+            }
 
-                _borderLeft.Clear();
-                _borderRight.Clear();
-                _borderBottom.Clear();
-
-                _cup = null;
+            for (int i = listCup.Count; i < list.Count; i++)
+            {
+                if(list[i].Shape != null) DestroyImmediate(list[i].Shape.gameObject);
+                list.RemoveAt(i);
+                i--;
             }
         }
-    */
     }
 }
 
