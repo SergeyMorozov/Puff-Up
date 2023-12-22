@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,23 +7,27 @@ namespace GAME
     {
         public BallPreset Preset;
         public BallRef Ref;
-        
-        public float Value;
-        public List<Collision> Collisions;
 
-        private void OnCollisionEnter(Collision other)
+        public float Value;
+        public Vector3 LastPosition;
+        public Vector3 LastScale;
+        public float LastValue;
+        public List<Collider2D> Colliders;
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if(Collisions.Contains(other)) return;
-            Collisions.Add(other);
+            // Debug.Log("+++");
+            if (Colliders.Contains(other)) return;
+            Colliders.Add(other);
         }
-        
-        private void OnCollisionExit(Collision other)
+
+        private void OnTriggerExit2D(Collider2D other)
         {
-            Collisions.Remove(other);
+            Colliders.Remove(other);
         }
 
     }
-    
-    
+
+
 }
 

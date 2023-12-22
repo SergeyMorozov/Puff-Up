@@ -6,6 +6,7 @@ namespace GAME
     [Serializable]
     public class BallSystemData
     {
+        public BallObject CreatedBall;
         public List<BallObject> Balls;
     }
 }
