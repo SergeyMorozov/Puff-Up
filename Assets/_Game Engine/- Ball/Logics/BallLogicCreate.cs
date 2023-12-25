@@ -22,6 +22,8 @@ namespace  GAME
 
             if (Input.GetMouseButtonDown(0))
             {
+                if(BallSystem.Data.CreatedBall != null) return;
+                
                 Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
                 if (!Physics.Raycast(ray, out hit, 100, _layerCreateBall)) return;
@@ -38,10 +40,14 @@ namespace  GAME
                 ball.Ref.TextValue.text = ((int)ball.Value).ToString();
 
                 Color color = ball.Ref.Sprite.color;
-                color.a = BallSystem.Settings.BallAlpha;
+                color.a = BallSystem.Settings.BallAlphaMove;
                 ball.Ref.Sprite.color = color;
-                ball.Ref.TextValue.alpha = BallSystem.Settings.TextAlpha;
+                ball.Ref.TextValue.alpha = BallSystem.Settings.TextAlphaMove;
 
+                ball.Ref.Rigidbody.mass = BallSystem.Settings.BallMassMove;
+                ball.Ref.Rigidbody.drag = BallSystem.Settings.BallDragMove;
+                ball.Ref.Rigidbody.gravityScale = BallSystem.Settings.BallGravityMove;
+                
                 BallSystem.Data.CreatedBall = ball;
             }
 
@@ -51,9 +57,12 @@ namespace  GAME
 
                 BallObject ball = BallSystem.Data.CreatedBall;
                 Color color = ball.Ref.Sprite.color;
-                color.a = 1;
+                color.a = BallSystem.Settings.BallAlphaFree;
                 ball.Ref.Sprite.color = color;
                 ball.Ref.Rigidbody.gravityScale = -1;
+                ball.Ref.Rigidbody.mass = BallSystem.Settings.BallMassFree;
+                ball.Ref.Rigidbody.drag = BallSystem.Settings.BallDragFree;
+                ball.Ref.Rigidbody.gravityScale = BallSystem.Settings.BallGravityFree;
                 
                 BallSystem.Data.CreatedBall = null;
             }
