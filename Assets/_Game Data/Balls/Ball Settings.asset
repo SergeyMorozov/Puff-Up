@@ -15,7 +15,7 @@ MonoBehaviour:
   MinRadius: 0.4
   BallAlphaMove: 0.7
   TextAlphaMove: 0.4
-  BallMassMove: 0.3
+  BallMassMove: 0.5
   BallDragMove: 10
   SpeedScale: 0.5
   ForceMoving: 1

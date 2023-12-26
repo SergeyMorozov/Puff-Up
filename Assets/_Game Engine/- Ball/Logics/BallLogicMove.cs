@@ -25,7 +25,7 @@ namespace  GAME
                 float radius = ball.Radius;
                 float delta = Time.deltaTime * BallSystem.Settings.SpeedScale;
                 
-                CheckPlace checkPlaceBall = BallSystem.Events.CheckFreePlace?.Invoke(ball.transform.position, radius - delta);
+                CheckPlace checkPlaceBall = BallSystem.Events.CheckFreePlace?.Invoke(ball.transform.position, radius - delta * 2);
                 bool isFree = checkPlaceBall.IsFree;
                 CheckPlace checkPlaceMouse = BallSystem.Events.CheckFreePlaceOnScreen?.Invoke(radius);
 
