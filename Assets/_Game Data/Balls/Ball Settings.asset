@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33dbe7617d2d984e9dd34fc7c592b2c, type: 3}
   m_Name: Ball Settings
   m_EditorClassIdentifier: 
+  MinRadius: 0.4
   BallAlphaMove: 0.7
   TextAlphaMove: 0.4
   BallMassMove: 0.3
   BallDragMove: 10
-  BallGravityMove: 0
+  SpeedScale: 0.5
   ForceMoving: 1
   BallAlphaFree: 1
   TextAlphaFree: 1
   BallMassFree: 5
-  BallDragFree: 1
+  BallDragFree: 0.2
   BallGravityFree: -1
   Balls:
   - {fileID: 5382942782002816015, guid: 1bb818828a190b64889b64942b4ff137, type: 3}

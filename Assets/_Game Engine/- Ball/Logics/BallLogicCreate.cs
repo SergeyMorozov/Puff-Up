@@ -7,13 +7,15 @@ namespace  GAME
     {
         private Camera _camera;
         private int _layerCreateBall;
-
+        private Plane _plane;
+        private Vector3 _position;
         private bool _isCreate;
-        
+
         private void Awake()
         {
             _camera = Camera.main;
             _layerCreateBall = LayerMask.NameToLayer("CreateBall");
+            _plane = new Plane(Vector3.back, Vector3.zero);
         }
 
         private void Update()
@@ -23,19 +25,19 @@ namespace  GAME
             if (Input.GetMouseButtonDown(0))
             {
                 if(BallSystem.Data.CreatedBall != null) return;
+
+                CheckPlace checkPlace = BallSystem.Events.CheckFreePlaceOnScreen?.Invoke(BallSystem.Settings.MinRadius * 1.05f);
+                if(!checkPlace.IsFree) return;
+
+                Debug.Log("Create Ball");
                 
-                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-
-                if (!Physics.Raycast(ray, out hit, 100, _layerCreateBall)) return;
-
                 _isCreate = true;
-                Vector3 pos = hit.point;
-                pos.z = 0;
                 BallObject ball = Tools.AddObject<BallObject>(BallSystem.Settings.Balls[0], null);
                 ball.name = BallSystem.Settings.Balls[0].name;
-                ball.transform.position = pos;
-                ball.transform.localScale = Vector3.one * 0.1f;
+                ball.transform.position = checkPlace.Position;
                 ball.Value = 1;
+                ball.Radius = BallSystem.Settings.MinRadius;
+                ball.transform.localScale = Vector3.one * ball.Radius * 2;
                 ball.Colliders = new List<Collider2D>();
                 ball.Ref.TextValue.text = ((int)ball.Value).ToString();
 
@@ -46,7 +48,7 @@ namespace  GAME
 
                 ball.Ref.Rigidbody.mass = BallSystem.Settings.BallMassMove;
                 ball.Ref.Rigidbody.drag = BallSystem.Settings.BallDragMove;
-                ball.Ref.Rigidbody.gravityScale = BallSystem.Settings.BallGravityMove;
+                ball.Ref.Rigidbody.gravityScale = 0;
                 
                 BallSystem.Data.CreatedBall = ball;
             }

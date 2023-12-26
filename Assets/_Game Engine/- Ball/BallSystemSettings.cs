@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+
 
 namespace GAME
 {
     public class BallSystemSettings : ScriptableObject
     {
         [Header("Ball Create")]
+        public float MinRadius;
         public float BallAlphaMove;
         public float TextAlphaMove;
         public float BallMassMove;
         public float BallDragMove;
-        public float BallGravityMove;
+        public float SpeedScale;
         public float ForceMoving;
 
         [Header("Ball Free")]

@@ -7,7 +7,6 @@ namespace  GAME
     {
         private Camera _camera;
         private Plane _plane;
-        private Vector3 _position;
         private int _layerMask;
 
         private void Awake()
@@ -23,33 +22,29 @@ namespace  GAME
 
             if (ball != null && Input.GetMouseButton(0))
             {
-                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+                float radius = ball.Radius;
+                float delta = Time.deltaTime * BallSystem.Settings.SpeedScale;
                 
-                float enter = 0.0f;
-                if (!_plane.Raycast(ray, out enter)) return;
-                _position = ray.GetPoint(enter);
+                CheckPlace checkPlaceBall = BallSystem.Events.CheckFreePlace?.Invoke(ball.transform.position, radius - delta);
+                bool isFree = checkPlaceBall.IsFree;
+                CheckPlace checkPlaceMouse = BallSystem.Events.CheckFreePlaceOnScreen?.Invoke(radius);
 
-                // Debug.Log(ball.Colliders.Count);
-
-                Collider2D collider = Physics2D.OverlapCircle(ball.transform.position, ball.transform.localScale.x * 2.45f, _layerMask);
-
-                if (collider != null)
-                {
-                    Vector3 direct = _position - ball.transform.position;
-                    direct.Normalize();
-                    ball.Ref.Rigidbody.AddForceAtPosition(direct * BallSystem.Settings.ForceMoving, _position, ForceMode2D.Impulse);
-                }
-                else
+                if (isFree)
                 {
                     ball.LastPosition = ball.transform.position;
                     ball.LastScale = ball.transform.localScale;
                     ball.LastValue = ball.Value;
 
-                    ball.Ref.Rigidbody.MovePosition(Vector2.Lerp(ball.Ref.Rigidbody.position, _position, Time.deltaTime * 10));
-                    ball.transform.localScale += Vector3.one * Time.deltaTime / 5f;
+                    ball.Ref.Rigidbody.MovePosition(Vector2.Lerp(ball.transform.position, checkPlaceMouse.Position, Time.deltaTime * 10));
+                    ball.Radius += delta;
+                    ball.transform.localScale = Vector3.one * ball.Radius * 2;
                 }
-
-                // Debug.Log("E-<");
+                else
+                {
+                    Vector3 direct = checkPlaceMouse.Position - ball.transform.position;
+                    direct.Normalize();
+                    ball.Ref.Rigidbody.AddForceAtPosition(direct * BallSystem.Settings.ForceMoving, checkPlaceMouse.Position, ForceMode2D.Impulse);
+                }
                 
                 ball.Ref.TextValue.text = ((int)ball.Value).ToString();
             }

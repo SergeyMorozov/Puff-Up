@@ -9,6 +9,7 @@ namespace GAME
         public BallRef Ref;
 
         public float Value;
+        public float Radius;
         public Vector3 LastPosition;
         public Vector3 LastScale;
         public float LastValue;
