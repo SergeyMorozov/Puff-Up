@@ -56,13 +56,17 @@ namespace  GAME
                 _isCreate = false;
 
                 BallObject ball = BallSystem.Data.CreatedBall;
+                if(ball == null) return;
+                
                 Color color = ball.Ref.Sprite.color;
                 color.a = BallSystem.Settings.BallAlphaFree;
                 ball.Ref.Sprite.color = color;
                 ball.Ref.Rigidbody.gravityScale = -1;
-                ball.Ref.Rigidbody.mass = BallSystem.Settings.BallMassFree;
+                ball.Ref.Rigidbody.mass = BallSystem.Settings.BallMassFree * ball.transform.localScale.x;
                 ball.Ref.Rigidbody.drag = BallSystem.Settings.BallDragFree;
                 ball.Ref.Rigidbody.gravityScale = BallSystem.Settings.BallGravityFree;
+                ball.Ref.Collider.gameObject.layer = LayerMask.NameToLayer("Default");
+                ball.transform.localScale = ball.LastScale * 0.95f;
                 
                 BallSystem.Data.CreatedBall = null;
             }

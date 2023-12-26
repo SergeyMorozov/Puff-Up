@@ -15,12 +15,12 @@ MonoBehaviour:
   BallAlphaMove: 0.7
   TextAlphaMove: 0.4
   BallMassMove: 0.3
-  BallDragMove: 2
+  BallDragMove: 10
   BallGravityMove: 0
-  ForceMoving: 5
+  ForceMoving: 1
   BallAlphaFree: 1
   TextAlphaFree: 1
-  BallMassFree: 10
+  BallMassFree: 5
   BallDragFree: 1
   BallGravityFree: -1
   Balls:

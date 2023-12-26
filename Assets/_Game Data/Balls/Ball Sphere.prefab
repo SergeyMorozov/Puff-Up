@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7830528791035138639}
   - component: {fileID: 1461511743294272409}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7830528791035138639
 Transform:
   m_ObjectHideFlags: 0
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 5382942782002816015}
   - component: {fileID: 6753269234067023810}
   - component: {fileID: 7175044114619418490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ball Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1107365392184575508}
   - component: {fileID: 222076237264662588}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 5120669088260581158}
   - component: {fileID: 6132474996875249545}
   - component: {fileID: 8343084636387737421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 980884224387007967}
   - component: {fileID: 225612611439400852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5175641702638296980}
   - component: {fileID: 6929031094519397497}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 961294793866445922}
   - component: {fileID: 4466600911230079577}
   - component: {fileID: 3425548993585322926}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}

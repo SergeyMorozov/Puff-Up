@@ -17,14 +17,14 @@ namespace GAME
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (Colliders.Contains(other)) return;
-            Debug.Log("+++ " + other.name);
+            // Debug.Log("+++ " + other.name);
             Colliders.Add(other);
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
             Colliders.Remove(other);
-            Debug.Log("------ " + other.name);
+            // Debug.Log("------ " + other.name);
         }
 
     }
