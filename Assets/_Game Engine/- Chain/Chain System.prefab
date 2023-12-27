@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7722133349688220024}
   - component: {fileID: 7130162415346856450}
+  - component: {fileID: -788504032182037269}
   - component: {fileID: 4445768015307197038}
   m_Layer: 0
   m_Name: Chain System
@@ -47,7 +48,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 100ccffd91cfa9147b093ef136b3d0df, type: 2}
   data:
-    listObjects: []
+    CurrentChain: {fileID: 0}
+    Chains: []
+--- !u!114 &-788504032182037269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836787764263922157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98222747891e15e4fb6fb5200bef69d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4445768015307197038
 MonoBehaviour:
   m_ObjectHideFlags: 0

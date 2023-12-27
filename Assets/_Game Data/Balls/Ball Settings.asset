@@ -18,6 +18,7 @@ MonoBehaviour:
   BallMassMove: 0.5
   BallDragMove: 10
   SpeedScale: 0.5
+  SpeedValue: 10
   ForceMoving: 1
   BallAlphaFree: 1
   TextAlphaFree: 1

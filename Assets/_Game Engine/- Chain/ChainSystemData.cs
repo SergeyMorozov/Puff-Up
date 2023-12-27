@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace GAME
 {
     [Serializable]
     public class ChainSystemData
     {
-        public List<ChainObject> listObjects;
+        public ChainObject CurrentChain;
+        public List<ChainObject> Chains;
     }
 }

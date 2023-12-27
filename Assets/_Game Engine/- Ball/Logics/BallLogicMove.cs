@@ -38,6 +38,8 @@ namespace  GAME
                     ball.Ref.Rigidbody.MovePosition(Vector2.Lerp(ball.transform.position, checkPlaceMouse.Position, Time.deltaTime * 10));
                     ball.Radius += delta;
                     ball.transform.localScale = Vector3.one * ball.Radius * 2;
+                    
+                    ball.Value += Time.deltaTime * BallSystem.Settings.SpeedValue;
                 }
                 else
                 {

@@ -13,6 +13,7 @@ namespace GAME
         public float BallMassMove;
         public float BallDragMove;
         public float SpeedScale;
+        public float SpeedValue;
         public float ForceMoving;
 
         [Header("Ball Free")]

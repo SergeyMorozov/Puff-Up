@@ -29,8 +29,6 @@ namespace  GAME
                 CheckPlace checkPlace = BallSystem.Events.CheckFreePlaceOnScreen?.Invoke(BallSystem.Settings.MinRadius * 1.05f);
                 if(!checkPlace.IsFree) return;
 
-                Debug.Log("Create Ball");
-                
                 _isCreate = true;
                 BallObject ball = Tools.AddObject<BallObject>(BallSystem.Settings.Balls[0], null);
                 ball.name = BallSystem.Settings.Balls[0].name;
@@ -69,6 +67,7 @@ namespace  GAME
                 ball.Ref.Rigidbody.gravityScale = BallSystem.Settings.BallGravityFree;
                 ball.Ref.Collider.gameObject.layer = LayerMask.NameToLayer("Default");
                 ball.transform.localScale = ball.LastScale * 0.95f;
+                BallSystem.Data.Balls.Add(ball);
                 
                 BallSystem.Data.CreatedBall = null;
             }
