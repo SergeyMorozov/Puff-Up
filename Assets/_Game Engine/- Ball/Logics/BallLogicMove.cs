@@ -31,15 +31,11 @@ namespace  GAME
 
                 if (isFree)
                 {
-                    ball.LastPosition = ball.transform.position;
-                    ball.LastScale = ball.transform.localScale;
-                    ball.LastValue = ball.Value;
-
                     ball.Ref.Rigidbody.MovePosition(Vector2.Lerp(ball.transform.position, checkPlaceMouse.Position, Time.deltaTime * 10));
                     ball.Radius += delta;
                     ball.transform.localScale = Vector3.one * ball.Radius * 2;
                     
-                    ball.Value += Time.deltaTime * BallSystem.Settings.SpeedValue;
+                    ball.ValueMax += Time.deltaTime * BallSystem.Settings.SpeedValue;
                 }
                 else
                 {
@@ -48,7 +44,7 @@ namespace  GAME
                     ball.Ref.Rigidbody.AddForceAtPosition(direct * BallSystem.Settings.ForceMoving, checkPlaceMouse.Position, ForceMode2D.Impulse);
                 }
                 
-                ball.Ref.TextValue.text = ((int)ball.Value).ToString();
+                ball.Ref.TextValue.text = ((int)ball.ValueMax).ToString();
             }
         }
     }

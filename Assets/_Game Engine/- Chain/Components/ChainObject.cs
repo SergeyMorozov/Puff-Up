@@ -8,6 +8,7 @@ namespace GAME
         public ChainPreset Preset;
         public ChainRef Ref;
 
+        public float Value;
         public List<Collider2D> Colliders;
         
         private void OnTriggerEnter2D(Collider2D other)

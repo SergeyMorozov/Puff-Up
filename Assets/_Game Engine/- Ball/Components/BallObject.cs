@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GAME
 {
@@ -8,24 +9,23 @@ namespace GAME
         public BallPreset Preset;
         public BallRef Ref;
 
+        [Space]
+        public bool IsChainConnected;
         public float Value;
+        public float ValueMax;
         public float Radius;
-        public Vector3 LastPosition;
-        public Vector3 LastScale;
-        public float LastValue;
-        public List<Collider2D> Colliders;
+        public List<Collider2D> CollidersChain;
+        public List<Collider2D> CollidersBalls;
+        public List<BallObject> ConnectedBalls;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (Colliders.Contains(other)) return;
-            // Debug.Log("+++ " + other.name);
-            Colliders.Add(other);
+            BallSystem.Events.BallColliderEnter?.Invoke(this, other);
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            Colliders.Remove(other);
-            // Debug.Log("------ " + other.name);
+            BallSystem.Events?.BallColliderExit?.Invoke(this, other);
         }
 
     }

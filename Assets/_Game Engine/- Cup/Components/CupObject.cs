@@ -10,7 +10,7 @@ namespace GAME
         public CupRef Ref;
 
         public ChainObject Chain;
-        
+
         [Header("Shapes")]
         public List<ShapeData> BorderLeft;
         public List<ShapeData> BorderRight;

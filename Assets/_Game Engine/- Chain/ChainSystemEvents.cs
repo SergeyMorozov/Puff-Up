@@ -5,5 +5,6 @@ namespace GAME
     [Serializable]
     public class ChainSystemEvents
     {
+        
     }
 }

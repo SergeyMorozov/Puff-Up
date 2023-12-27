@@ -1,5 +1,72 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3986473706029757116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4423448613630982131}
+  - component: {fileID: 4664990396217682421}
+  m_Layer: 8
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4423448613630982131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986473706029757116}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.02, y: 1.02, z: 1.02}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1629329155296656750}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4664990396217682421
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986473706029757116}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &4346166249624362511
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +100,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 980884224387007967}
+  - {fileID: 4423448613630982131}
   - {fileID: 5120669088260581158}
   - {fileID: 5175641702638296980}
   - {fileID: 1107365392184575508}
@@ -53,12 +121,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Preset: {fileID: 0}
   Ref: {fileID: 6753269234067023810}
+  IsChainConnected: 0
   Value: 0
+  ValueMax: 0
   Radius: 0
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastScale: {x: 0, y: 0, z: 0}
-  LastValue: 0
-  Colliders: []
+  CollidersChain: []
+  CollidersBalls: []
+  ConnectedBalls: []
 --- !u!114 &6753269234067023810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,8 +142,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprite: {fileID: 6929031094519397497}
   TextValue: {fileID: 3425548993585322926}
-  Outline: {fileID: 0}
+  Outline: {fileID: 5695123191181169229}
   Collider: {fileID: 225612611439400852}
+  Trigger: {fileID: 4664990396217682421}
   Rigidbody: {fileID: 7175044114619418490}
 --- !u!50 &7175044114619418490
 Rigidbody2D:

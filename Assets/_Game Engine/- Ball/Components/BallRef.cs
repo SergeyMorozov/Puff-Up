@@ -9,6 +9,7 @@ namespace GAME
         public TextMeshPro TextValue;
         public GameObject Outline;
         public Collider2D Collider;
+        public Collider2D Trigger;
         public Rigidbody2D Rigidbody;
         
     }

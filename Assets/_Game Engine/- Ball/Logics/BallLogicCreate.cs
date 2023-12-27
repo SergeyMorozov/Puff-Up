@@ -33,11 +33,11 @@ namespace  GAME
                 BallObject ball = Tools.AddObject<BallObject>(BallSystem.Settings.Balls[0], null);
                 ball.name = BallSystem.Settings.Balls[0].name;
                 ball.transform.position = checkPlace.Position;
-                ball.Value = 1;
+                ball.ValueMax = 1;
                 ball.Radius = BallSystem.Settings.MinRadius;
                 ball.transform.localScale = Vector3.one * ball.Radius * 2;
-                ball.Colliders = new List<Collider2D>();
-                ball.Ref.TextValue.text = ((int)ball.Value).ToString();
+                ball.CollidersBalls = new List<Collider2D>();
+                ball.Ref.TextValue.text = ((int)ball.ValueMax).ToString();
 
                 Color color = ball.Ref.Sprite.color;
                 color.a = BallSystem.Settings.BallAlphaMove;
@@ -57,7 +57,8 @@ namespace  GAME
 
                 BallObject ball = BallSystem.Data.CreatedBall;
                 if(ball == null) return;
-                
+
+                ball.Value = ball.ValueMax;
                 Color color = ball.Ref.Sprite.color;
                 color.a = BallSystem.Settings.BallAlphaFree;
                 ball.Ref.Sprite.color = color;
@@ -66,10 +67,12 @@ namespace  GAME
                 ball.Ref.Rigidbody.drag = BallSystem.Settings.BallDragFree;
                 ball.Ref.Rigidbody.gravityScale = BallSystem.Settings.BallGravityFree;
                 ball.Ref.Collider.gameObject.layer = LayerMask.NameToLayer("Default");
-                ball.transform.localScale = ball.LastScale * 0.95f;
+                ball.Ref.Trigger.enabled = true;
+                ball.transform.localScale *= 0.95f;
                 BallSystem.Data.Balls.Add(ball);
                 
                 BallSystem.Data.CreatedBall = null;
+                BallSystem.Events.BallCreated?.Invoke(ball);
             }
         }
         

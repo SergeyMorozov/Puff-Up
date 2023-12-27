@@ -35,6 +35,7 @@ namespace GAME
             get
             {
                 CheckInstance();
+                if (Instance == null) return null;
                 return Instance.events ?? (Instance.events = new BallSystemEvents());
             }
         }
