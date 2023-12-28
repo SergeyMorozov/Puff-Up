@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GAME
 {
     public class GameSystemSettings : ScriptableObject
     {
-        public string storeName = "game_data";
-        public string gameRoot = "Game";
+        public string StoreName = "game_data";
+        public float FadeSpeed = 0.5f;
     }
 }

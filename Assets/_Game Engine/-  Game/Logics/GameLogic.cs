@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,33 +10,29 @@ namespace  GAME
         private void Awake()
         {
             Random.InitState(0);
-
-            Application.targetFrameRate = 1000;
-            GameSystem.Data.GamePause = true;
-        }
-
-        private void Start()
-        {
-            // StateSystem.Events.StateAppLoading?.Invoke();
-        }
-
-        /*        
-        private void Awake()
-        {
-            Random.InitState(0);
             
             Application.targetFrameRate = 1000;
             GameSystem.Data.GamePause = true;
             
-            StoreGameSystem.Events.StoreDataLoaded += StoreDataLoaded;
-            LevelSystem.Events.LevelLoaded += LevelLoaded;
+            LoadingSystem.Events.AppLoadComplete += AppLoadComplete;
+            
+            // StoreGameSystem.Events.StoreDataLoaded += StoreDataLoaded;
+            // LevelSystem.Events.LevelLoaded += LevelLoaded;
         }
 
         private void Start()
         {
+            LoadingSystem.Events.AppLoad?.Invoke();
+            
             // Загрузка предыдущих сохранённых данных
-            StoreGameSystem.Events.StoreDataLoad?.Invoke();
+            // StoreGameSystem.Events.StoreDataLoad?.Invoke();
         }
+
+        private void AppLoadComplete(Action actionOut)
+        {
+            GameSystem.Events.GameActionWithFade?.Invoke(actionOut, LevelSystem.Events.LevelLoad);
+        }
+
 
         private void StoreDataLoaded()
         {
@@ -94,7 +91,6 @@ namespace  GAME
             }
         }
 
-*/
     }
 }
 

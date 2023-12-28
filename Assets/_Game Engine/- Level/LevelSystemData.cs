@@ -6,6 +6,8 @@ namespace GAME
     [Serializable]
     public class LevelSystemData
     {
+        public LevelStateData State;
+        
         public LevelPreset LevelPreset;
         public LevelObject CurrentLevel;
 
@@ -19,5 +21,13 @@ namespace GAME
         public float Progress;    // Range 0-100
         public bool IsWin;
     }
+    
+    [Serializable]
+    public class LevelStateData : GameStateData
+    {
+        public LevelObject Level;
+        public LevelState LevelState;
+    }
+
     
 }

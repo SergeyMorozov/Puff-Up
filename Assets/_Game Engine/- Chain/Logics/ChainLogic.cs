@@ -17,6 +17,7 @@ namespace  GAME
 
         private void Update()
         {
+            return;
             ChainSystem.Data.CurrentChain.Ref.TextValue.text = ((int)ChainSystem.Data.CurrentChain.Value).ToString();
         }
     }
