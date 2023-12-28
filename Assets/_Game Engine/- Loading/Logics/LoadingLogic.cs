@@ -19,12 +19,12 @@ namespace  GAME
             StoreGameSystem.Events.StoreDataLoad?.Invoke();
 
             _data.IsActive = true;
-            _data.IsShow = true;
+            _data.ShowUI = true;
         }
 
         private void Update()
         {
-            if(!_data.IsActive || !_data.IsShow) return;
+            if(!_data.IsActive || !_data.ShowUI) return;
 
             _data.Value += Time.deltaTime / LoadingSystem.Settings.FakeTimeLoading;
             
@@ -38,7 +38,7 @@ namespace  GAME
 
         private void Close()
         {
-            _data.IsShow = false;
+            _data.ShowUI = false;
         }
     }
 }

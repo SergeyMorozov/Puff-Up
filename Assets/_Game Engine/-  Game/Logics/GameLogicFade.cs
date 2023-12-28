@@ -19,13 +19,13 @@ namespace  GAME
             _actionOut = actionOut;
             _actionIn = actionIn;
 
-            GameSystem.Data.IsFadeActive = true;
+            GameSystem.Data.FadeShow = true;
             _isShow = true;
         }
 
         private void Update()
         {
-            if (GameSystem.Data.IsFadeActive && _isShow)
+            if (GameSystem.Data.FadeShow && _isShow)
             {
                 GameSystem.Data.FadeValue += Time.deltaTime / GameSystem.Settings.FadeSpeed;
                 if (GameSystem.Data.FadeValue >= 1)
@@ -38,13 +38,13 @@ namespace  GAME
                 }
             }
             
-            if (GameSystem.Data.IsFadeActive && !_isShow)
+            if (GameSystem.Data.FadeShow && !_isShow)
             {
                 GameSystem.Data.FadeValue -= Time.deltaTime / GameSystem.Settings.FadeSpeed;
                 if (GameSystem.Data.FadeValue <= 0)
                 {
                     GameSystem.Data.FadeValue = 0;
-                    GameSystem.Data.IsFadeActive = false;
+                    GameSystem.Data.FadeShow = false;
                 }
             }
 

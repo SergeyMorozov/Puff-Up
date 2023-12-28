@@ -6,7 +6,7 @@ namespace GAME
     public class LoadingSystemData
     {
         public bool IsActive;
-        public bool IsShow;
+        public bool ShowUI;
         public float Value;
     }
     

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7897345703634336884}
   - component: {fileID: 7337981063059759854}
+  - component: {fileID: -5205370224375424876}
   - component: {fileID: -4275084181711099569}
   - component: {fileID: -5919376522472397772}
   m_Layer: 0
@@ -56,6 +57,18 @@ MonoBehaviour:
     TimeStart: 0
     Progress: 0
     IsWin: 0
+--- !u!114 &-5205370224375424876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221666803162759394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b189d6430af6afe49b9fec60dff3c4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-4275084181711099569
 MonoBehaviour:
   m_ObjectHideFlags: 0

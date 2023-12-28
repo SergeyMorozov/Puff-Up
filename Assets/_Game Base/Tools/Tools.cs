@@ -24,14 +24,14 @@ namespace GAME
 //			PlayerPrefs.SetString(key, "");
 			
 			string json = PlayerPrefs.GetString(key, "");
-			Debug.Log("GetPlayerPrefs " + key + " " + json);
+			Debug.Log("GetPlayerPrefs (" + key + ") " + json);
 			return JsonToObject(json, type);
 		}
 
 		public static void SetDataToPrefs<T>(string key, T data)
 		{
 			string json = ObjectToJson(data);
-			Debug.Log("SetPlayerPrefs " + key + " " + json);
+			Debug.Log("SetPlayerPrefs (" + key + ") " + json);
 			PlayerPrefs.SetString(key, json);
 		}
 

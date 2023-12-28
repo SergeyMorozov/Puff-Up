@@ -12,12 +12,22 @@ namespace  GAME
         private void LevelLoad()
         {
             LevelSystem.Data.IsWin = false;
-            LevelPreset levelPreset = LevelSystem.Data.LevelPreset; 
-            // LevelObject level = Tools.AddObject<LevelObject>(levelPreset.Prefab, null);
-            // level.Preset = levelPreset;
-            // level.name = levelPreset.name;
-            // LevelSystem.Data.CurrentLevel = level;
-            // LevelSystem.Data.LevelNumber = LevelSystem.Settings.Levels.FindIndex(l => l == levelPreset) + 1;
+            
+            int index = LevelSystem.Data.LevelNumber - 1;
+            LevelPreset levelPreset = LevelSystem.Settings.Levels[index]; 
+            LevelObject level = Tools.AddObject<LevelObject>(null);
+            level.Preset = levelPreset;
+            level.name = levelPreset.name;
+
+            SetCups();
+            
+            LevelSystem.Data.CurrentLevel = level;
+            LevelSystem.Events.LevelLoaded?.Invoke();
+        }
+
+        private void SetCups()
+        {
+            
         }
     }
 }

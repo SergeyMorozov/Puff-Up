@@ -33,8 +33,8 @@ namespace  GAME
 
         private void Update()
         {
-            if (_data.IsShow && !_show) Show();
-            if (!_data.IsShow && _show) Hide();
+            if (_data.ShowUI && !_show) Show();
+            if (!_data.ShowUI && _show) Hide();
             if(!_show) return;
 
             _view.ProgressBar.value = _data.Value;

@@ -35,8 +35,8 @@ namespace  GAME
 
         private void Update()
         {
-            if (GameSystem.Data.IsFadeActive && !_show) Show();
-            if (!GameSystem.Data.IsFadeActive && _show) Hide();
+            if (GameSystem.Data.FadeShow && !_show) Show();
+            if (!GameSystem.Data.FadeShow && _show) Hide();
             if(!_show) return;
 
             _view.CanvasGroup.alpha = GameSystem.Data.FadeValue;

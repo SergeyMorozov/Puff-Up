@@ -23,9 +23,6 @@ namespace  GAME
         private void Start()
         {
             LoadingSystem.Events.AppLoad?.Invoke();
-            
-            // Загрузка предыдущих сохранённых данных
-            // StoreGameSystem.Events.StoreDataLoad?.Invoke();
         }
 
         private void AppLoadComplete(Action actionOut)
