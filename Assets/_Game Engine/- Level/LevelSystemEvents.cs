@@ -5,6 +5,8 @@ namespace GAME
     [Serializable]
     public class LevelSystemEvents
     {
+        public Action NextCup;
+        
         public Action LevelPreset;      // Загрузка LevelPreset
         public Action LevelLoad;        // Старт загрузки уровня
         public Action LevelClear;       // Очистка данных предыдущего уровня

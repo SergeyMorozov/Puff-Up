@@ -13,6 +13,7 @@ namespace  GAME
         private void BallConnected(BallObject ball)
         {
             ChainObject chain = ChainSystem.Data.CurrentChain;
+            if(chain.Value <= 0) return;
             
             chain.Value -= ball.Value;
             if (chain.Value > 0) return;

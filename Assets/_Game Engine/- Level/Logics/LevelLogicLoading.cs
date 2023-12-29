@@ -37,29 +37,33 @@ namespace  GAME
                 CupObject cupLevel = Tools.AddObject<CupObject>(cupPrefab, level.transform);
                 cupLevel.Ref = cupLevel.GetComponentInChildren<CupRef>();
                 cupLevel.Ref.TextLevel.text = (i + 1).ToString();
+                cupLevel.Shapes = cupLevel.GetComponentsInChildren<ShapeObject>().ToList();
+                
                 if (nextPoint != null)
                 {
+                    SetShapesSizeZero(cupLevel);
+                    cupLevel.Ref.BorderBottom.localScale = new Vector3(1, 0, 1);
+                    cupLevel.Ref.BorderBottom.gameObject.SetActive(false);
                     cupLevel.transform.position = nextPoint.position;
-                    SetShapesList(cupLevel);
                 }
                 nextPoint = cupLevel.Ref.NextCupPoint;
                 
+                CupSystem.Data.Cups.Add(cupLevel);
+                
                 ChainObject chain = cupLevel.GetComponentInChildren<ChainObject>();
-                chain.Value = 60;
+                chain.Value = 40;
                 ChainSystem.Data.Chains.Add(chain);
                 if (i == 0) ChainSystem.Data.CurrentChain = chain;
                 
                 Destroy(cupLevel.GetComponent<CupCreator>());
             }
+
+            CupSystem.Data.Index = 0;
+            CupSystem.Data.CurrentCup = CupSystem.Data.Cups[0];
         }
 
-        private void SetShapesList(CupObject cup)
+        private void SetShapesSizeZero(CupObject cup)
         {
-            cup.Ref.BorderBottom.localScale = new Vector3(1, 0, 1);
-            cup.Ref.BorderBottom.gameObject.SetActive(false);
-            
-            cup.Shapes = cup.GetComponentsInChildren<ShapeObject>().ToList();
-
             foreach (ShapeObject shape in cup.Shapes)
             {
                 shape.gameObject.SetActive(false);
