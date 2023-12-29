@@ -67,7 +67,7 @@ namespace  GAME
                 
                 foreach (ShapeObject shape in CupSystem.Data.CurrentCup.Shapes)
                 {
-                    shape.transform.localScale = Vector3.one * time;
+                    shape.transform.localScale = new Vector3(time, time, 1);
                 }
 
                 CupSystem.Data.CurrentCup.Ref.BorderBottom.localScale = new Vector3(1, time, 1);
@@ -93,7 +93,7 @@ namespace  GAME
          
             foreach (Transform shape in _shapes)
             {
-                shape.localScale = Vector3.one * _timer;
+                shape.localScale = new Vector3(_timer, _timer, 1);
             }
         }
     }
