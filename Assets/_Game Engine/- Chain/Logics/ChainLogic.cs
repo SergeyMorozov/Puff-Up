@@ -12,13 +12,21 @@ namespace  GAME
 
         private void BallConnected(BallObject ball)
         {
-            ChainSystem.Data.CurrentChain.Value -= ball.Value;
+            ChainObject chain = ChainSystem.Data.CurrentChain;
+            
+            chain.Value -= ball.Value;
+            if (chain.Value > 0) return;
+
+            chain.Value = 0;
+            ChainSystem.Events.ChainDestroy?.Invoke(chain);
         }
 
         private void Update()
         {
-            return;
-            ChainSystem.Data.CurrentChain.Ref.TextValue.text = ((int)ChainSystem.Data.CurrentChain.Value).ToString();
+            foreach (ChainObject chain in ChainSystem.Data.Chains)
+            {
+                chain.Ref.TextValue.text = ((int)chain.Value).ToString();
+            }
         }
     }
 }

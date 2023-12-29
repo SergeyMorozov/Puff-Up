@@ -1,14 +1,12 @@
-using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace  GAME
 {
     [ExecuteInEditMode]
-    public class CupLogicEdit : MonoBehaviour
+    public class CupLogicCreator : MonoBehaviour
     {
-        private static CupObject _cup;
+        private static CupCreator _cup;
         private static CupRef _cupRef;
         private static ChainObject _chain;
         private static List<ShapeData> _borderLeft;
@@ -16,14 +14,14 @@ namespace  GAME
         private static List<ShapeData> _borderBottom;
         private static List<ShapeData2D> _inside;
 
-        public static void CupView(CupObject cup)
+        public static void CupView(CupCreator cupCreator)
         {
-            if(!cup.gameObject.scene.IsValid() ||
+            if(!cupCreator.gameObject.scene.IsValid() ||
                Application.isPlaying) return;
 
-            if (_cup != cup)
+            if (_cup != cupCreator)
             {
-                Tools.RemoveObjects(cup.transform, true);
+                Tools.RemoveObjects(cupCreator.transform, true);
 
                 if (_cupRef != null) DestroyImmediate(_cupRef.gameObject);
                 if (_chain != null) DestroyImmediate(_chain.gameObject);
@@ -58,7 +56,7 @@ namespace  GAME
                 }
             }
 
-            _cup = cup;
+            _cup = cupCreator;
             
             CupRef();
             Chain();
@@ -76,13 +74,13 @@ namespace  GAME
 
         private static void CupRef()
         {
-            if (_cupRef == null && _cup.Ref != null)
+            if (_cupRef == null && _cup.CupRef != null)
             {
-                _cupRef = Tools.AddObject<CupRef>(_cup.Ref, _cup.transform);
-                _cupRef.name = _cup.Ref.name;
+                _cupRef = Tools.AddObject<CupRef>(_cup.CupRef, _cup.transform);
+                _cupRef.name = _cup.CupRef.name;
             }
             
-            if (_cupRef != null && _cup.Ref == null)
+            if (_cupRef != null && _cup.CupRef == null)
             {
                 DestroyImmediate(_cupRef.gameObject);
                 _cupRef = null;
@@ -140,18 +138,18 @@ namespace  GAME
                     switch (indexBorder)
                     {
                         case 0:
-                            borderData.Shape.transform.position = _cup.Ref.Shapes[0].transform.position +
+                            borderData.Shape.transform.position = _cup.CupRef.Shapes[0].transform.position +
                                                                   new Vector3(0, shapeData.Position * 9, 0);
                             break;
 
                         case 1:
-                            borderData.Shape.transform.position = _cup.Ref.Shapes[1].transform.position +
+                            borderData.Shape.transform.position = _cup.CupRef.Shapes[1].transform.position +
                                                                   new Vector3(0, shapeData.Position * 9, 0);
                             borderData.Shape.transform.localRotation = Quaternion.Euler(0, 180, 0);
                             break;
                         
                         case 2:
-                            borderData.Shape.transform.position = _cup.Ref.Shapes[2].transform.position +
+                            borderData.Shape.transform.position = _cup.CupRef.Shapes[2].transform.position +
                                                                   new Vector3((shapeData.Position - 0.5f) * 6.4f, 0, 0);
                             break;
 
@@ -196,7 +194,7 @@ namespace  GAME
 
                 if (borderData.Shape != null)
                 {
-                    borderData.Shape.transform.position = _cup.Ref.Shapes[3].transform.position +
+                    borderData.Shape.transform.position = _cup.CupRef.Shapes[3].transform.position +
                                                           new Vector3((shapeData.PositionX - 0.5f) * 8,
                                                               (shapeData.PositionY - 0.5f) * 11, 0);
                 }

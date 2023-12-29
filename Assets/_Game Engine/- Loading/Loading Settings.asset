@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3474777c08bf5cd4da99afcab219f9eb, type: 3}
   m_Name: Loading Settings
   m_EditorClassIdentifier: 
-  FakeTimeLoading: 2
+  FakeTimeLoading: 0.5

@@ -12,6 +12,7 @@ namespace  GAME
         private void Awake()
         {
             LevelSystem.Events.LevelLoaded += LevelLoaded;
+            ChainSystem.Events.ChainDestroy += ChainDestroy;
         }
 
         private void LevelLoaded()
@@ -19,10 +20,10 @@ namespace  GAME
             _level = LevelSystem.Data.CurrentLevel;
         }
 
-        private void Update()
+        private void ChainDestroy(ChainObject obj)
         {
+            
         }
-
     }
 }
 
