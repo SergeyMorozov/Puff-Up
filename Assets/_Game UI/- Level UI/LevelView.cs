@@ -12,6 +12,7 @@ namespace GAME
         public Animator AnimatorSound;
         public Animator AnimatorMovePopup;
 
+        public RectTransform IconMoney;
         public TextMeshProUGUI TextMoney;
         public TextMeshProUGUI TextMoves;
 

@@ -9,6 +9,8 @@ namespace GAME
         public PlayerRef Ref;
 
         public float Money;
+        public float MoneyLast;
+        
         public float Moves;
         public float MovesLast;
         public float MovesDist;

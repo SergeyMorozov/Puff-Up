@@ -1713,11 +1713,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimatorMoney: {fileID: 9190217040514984153}
-  AnimatorMoneyText: {fileID: 0}
+  AnimatorMoneyText: {fileID: 793461001640211869}
   AnimatorMoves: {fileID: 3474339881210067384}
   AnimatorMovesText: {fileID: 8905836061718488447}
   AnimatorSound: {fileID: 9148519032143879025}
   AnimatorMovePopup: {fileID: 2187065659505608538}
+  IconMoney: {fileID: 904017283648192925}
   TextMoney: {fileID: 5541145627780874332}
   TextMoves: {fileID: 1998855634617774682}
   MovesGroup: {fileID: 354648494626324701}

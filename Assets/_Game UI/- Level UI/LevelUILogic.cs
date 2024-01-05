@@ -22,6 +22,12 @@ namespace  GAME
             
             LevelCanvas.Instance.Show += Show;
             LevelCanvas.Instance.Hide += Hide;
+            PlayerSystem.Events.MoneyChanged += MoneyChanged;
+        }
+
+        private void MoneyChanged()
+        {
+            _view.AnimatorMoneyText.SetTrigger("Wow");
         }
 
         private void LevelLoaded()
@@ -59,13 +65,14 @@ namespace  GAME
         {
             if(!_show) return;
             
-            _view.TextMoney.text = ((int)_player.Money).ToString();
+            _view.TextMoney.text = ((int)_player.MoneyLast).ToString();
             _view.TextMoves.text = ((int)_player.MovesLast).ToString();
 
             if (_player.MovesLast != _player.Moves)
             {
                 _view.AnimatorMovesText.SetTrigger("Wow");
             }
+
         }
 
         IEnumerator StartShow()

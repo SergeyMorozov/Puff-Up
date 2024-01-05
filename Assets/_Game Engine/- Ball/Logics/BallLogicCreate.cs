@@ -10,12 +10,14 @@ namespace  GAME
         private Plane _plane;
         private Vector3 _position;
         private bool _isCreate;
+        private PlayerObject _player;
 
         private void Awake()
         {
             _camera = Camera.main;
             _layerCreateBall = LayerMask.NameToLayer("CreateBall");
             _plane = new Plane(Vector3.back, Vector3.zero);
+            _player = PlayerSystem.Data.CurrentPlayer;
         }
 
         private void Update()
@@ -70,6 +72,8 @@ namespace  GAME
                 ball.Ref.Trigger.enabled = true;
                 ball.transform.localScale *= 0.95f;
                 BallSystem.Data.Balls.Add(ball);
+
+                _player.Money += ball.Value;
                 
                 BallSystem.Data.CreatedBall = null;
                 BallSystem.Events.BallCreated?.Invoke(ball);

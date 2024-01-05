@@ -41,6 +41,7 @@ namespace GAME
             }
             
             PlayerSystem.Data.CurrentPlayer.Money = PlayerSystem.Data.PlayerStore.Money;
+            PlayerSystem.Data.CurrentPlayer.MoneyLast = PlayerSystem.Data.PlayerStore.Money;
         }
 
         private void SaveStoreData()
