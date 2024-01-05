@@ -18,6 +18,8 @@ namespace  GAME
             _view.gameObject.SetActive(false);
             
             LevelSystem.Events.LevelLoaded += LevelLoaded;
+            LevelSystem.Events.CupLoaded += CupLoaded;
+            
             LevelCanvas.Instance.Show += Show;
             LevelCanvas.Instance.Hide += Hide;
         }
@@ -25,6 +27,13 @@ namespace  GAME
         private void LevelLoaded()
         {
             Show();
+        }
+
+        private void CupLoaded()
+        {
+            _view.MovesText.text = "+" + LevelSystem.Data.CurrentLevel.Preset.AddMoves + " ходов";
+            _view.AnimatorMovePopup.SetTrigger("Show");
+
         }
 
         private void Show()
@@ -51,7 +60,12 @@ namespace  GAME
             if(!_show) return;
             
             _view.TextMoney.text = ((int)_player.Money).ToString();
-            _view.TextMoves.text = _player.Moves.ToString();
+            _view.TextMoves.text = ((int)_player.MovesLast).ToString();
+
+            if (_player.MovesLast != _player.Moves)
+            {
+                _view.AnimatorMovesText.SetTrigger("Wow");
+            }
         }
 
         IEnumerator StartShow()

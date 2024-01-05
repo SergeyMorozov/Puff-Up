@@ -35,7 +35,12 @@ namespace  GAME
             {
                 CupObject cupPrefab = level.Preset.Cups[i];
                 CupObject cupLevel = Tools.AddObject<CupObject>(cupPrefab, level.transform);
-                cupLevel.Ref = cupLevel.GetComponentInChildren<CupRef>();
+                CupCreator cupCreator = cupLevel.GetComponent<CupCreator>();
+
+                Destroy(cupLevel.GetComponentInChildren<CupRef>().gameObject);
+                Destroy(cupLevel.GetComponentInChildren<ChainObject>().gameObject);
+                
+                cupLevel.Ref = Tools.AddObject<CupRef>(cupCreator.CupRef, cupLevel.transform);
 
                 if (i == 0)
                 {
@@ -59,8 +64,10 @@ namespace  GAME
                 
                 CupSystem.Data.Cups.Add(cupLevel);
                 
-                ChainObject chain = cupLevel.GetComponentInChildren<ChainObject>();
-                chain.Value = 40;
+                ChainObject chain = Tools.AddObject<ChainObject>(cupCreator.Chain, cupLevel.transform);
+                chain.transform.position = cupLevel.Ref.ChainPoint.position;
+                chain.IsActive = true;
+                chain.Value = chain.ValueLast = level.Preset.Chains[i];
                 ChainSystem.Data.Chains.Add(chain);
                 if (i == 0) ChainSystem.Data.CurrentChain = chain;
                 

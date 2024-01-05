@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace  GAME
@@ -11,11 +12,37 @@ namespace  GAME
             _player = PlayerSystem.Data.CurrentPlayer;
             
             LevelSystem.Events.LevelLoaded += LevelLoaded;
+            BallSystem.Events.BallCreated += BallCreated;
+            LevelSystem.Events.CupLoaded += CupLoaded;
         }
 
         private void LevelLoaded()
         {
             _player.Moves = LevelSystem.Data.CurrentLevel.Preset.StartMoves;
+        }
+        
+        private void BallCreated(BallObject ball)
+        {
+            _player.Moves--;
+        }
+
+        private void CupLoaded()
+        {
+            _player.Moves += LevelSystem.Data.CurrentLevel.Preset.AddMoves;
+        }
+
+        private void Update()
+        {
+            if (_player.MovesLast == _player.Moves) return;
+
+            _player.MovesDist += Time.deltaTime / 2;
+            _player.MovesLast = Mathf.Lerp(_player.MovesLast, _player.Moves, _player.MovesDist);
+            
+            if (Mathf.Abs(_player.MovesLast - _player.Moves) <= 1)
+            {
+                _player.MovesLast = _player.Moves;
+                _player.MovesDist = 0;
+            }
         }
     }
 }

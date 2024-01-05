@@ -7131,7 +7131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Preset: {fileID: 11400000, guid: 1ce869773394959438f04d59fa7fb43b, type: 2}
   Ref: {fileID: 7205696435928016981}
+  IsActive: 0
   Value: 0
+  ValueLast: 0
+  ValueDist: 0
   Colliders: []
 --- !u!114 &7205696435928016981
 MonoBehaviour:
@@ -7146,6 +7149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextValue: {fileID: 1450893243570002856}
+  HingeDestroy: {fileID: 0}
 --- !u!1 &8878835281926118525
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ namespace GAME
     public class LevelSystemEvents
     {
         public Action NextCup;
+        public Action CupLoaded;
         
         public Action LevelPreset;      // Загрузка LevelPreset
         public Action LevelLoad;        // Старт загрузки уровня

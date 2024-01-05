@@ -12,6 +12,7 @@ namespace  GAME
         private void NextCup()
         {
             CupSystem.Data.Index++;
+            if(CupSystem.Data.Index >= CupSystem.Data.Cups.Count) return;
             CupSystem.Data.CurrentCup = CupSystem.Data.Cups[CupSystem.Data.Index];
             ChainSystem.Data.CurrentChain = CupSystem.Data.CurrentCup.GetComponentInChildren<ChainObject>();
 
@@ -21,6 +22,8 @@ namespace  GAME
             {
                 cam.Cams[i].SetActive(i == CupSystem.Data.Index);
             }
+            
+            LevelSystem.Events.CupLoaded?.Invoke();
         }
     }
 }

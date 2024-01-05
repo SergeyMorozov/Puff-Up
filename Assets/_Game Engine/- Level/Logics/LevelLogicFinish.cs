@@ -28,8 +28,6 @@ namespace  GAME
 
         private void ChainDestroy(ChainObject chain)
         {
-            chain.gameObject.SetActive(false);
-
             _shapes.Clear();
             foreach (ShapeObject shape in CupSystem.Data.CurrentCup.Shapes)
             {

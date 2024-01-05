@@ -12,5 +12,7 @@ namespace GAME
         public Action<BallObject, Collider2D> BallColliderExit;
         public Action<BallObject> BallCreated;
         public Action<BallObject> BallConnected;
+
+        public Action<bool> BallCreateEnabled;
     }
 }

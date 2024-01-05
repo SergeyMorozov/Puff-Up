@@ -10,6 +10,8 @@ namespace GAME
 
         public float Money;
         public float Moves;
+        public float MovesLast;
+        public float MovesDist;
     }
 }
 
