@@ -36,7 +36,16 @@ namespace  GAME
                 CupObject cupPrefab = level.Preset.Cups[i];
                 CupObject cupLevel = Tools.AddObject<CupObject>(cupPrefab, level.transform);
                 cupLevel.Ref = cupLevel.GetComponentInChildren<CupRef>();
-                cupLevel.Ref.TextLevel.text = (i + 1).ToString();
+
+                if (i == 0)
+                {
+                    cupLevel.Ref.TextLevel.text = LevelSystem.Data.LevelNumber.ToString();
+                }
+                else
+                {
+                    cupLevel.Ref.TextLevel.transform.parent.gameObject.SetActive(false);
+                }
+                
                 cupLevel.Shapes = cupLevel.GetComponentsInChildren<ShapeObject>().ToList();
                 
                 if (nextPoint != null)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6361149039131537101}
   - component: {fileID: 4991622108846141878}
   - component: {fileID: 5453151682961393883}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7339173299159034949}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Joystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 5127104811334328557}
   - component: {fileID: 7490974389768368494}
   - component: {fileID: 1614999383393381924}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 625385125172796884}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 2272397690421913080}
   - component: {fileID: 713188899612324817}
   - component: {fileID: 1037740825729095980}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon Click
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4118768501306078336}
   - component: {fileID: 6923767070618306523}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cursor View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1350831865155896279}
   - component: {fileID: 6432679960032456533}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 5172186944635848720}
   - component: {fileID: 8269173813399945922}
   - component: {fileID: -6464780198176882098}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CursorUI Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,21 +10,18 @@ namespace  GAME
         {
             StoreGameSystem.Data.status = new Dictionary<string, StoreStatus>();
             
-            StoreGameSystem.Events.StoreDataLoad += LoadStoreData;
             StoreGameSystem.Events.LoadDataByType += LoadDataByType;
-            StoreGameSystem.Events.StoreDataSave += SaveStoreData;
             StoreGameSystem.Events.SaveDataByType += SaveDataByType;
-        }
-
-        private void LoadStoreData()
-        {
-            Debug.Log("StoreData Loading <<<===");
-//            DOVirtual.DelayedCall(0.01f, () => { StoreSystem.Data.Status = StoreStatus.Loading; });
-            StoreGameSystem.Data.Status = StoreStatus.Loading;
         }
 
         private void LoadDataByType<T>(T type, string storeName, Action<object> callBack)
         {
+            if (StoreGameSystem.Data.Status != StoreStatus.Loading)
+            {
+                Debug.Log("StoreData Loading <<<===");
+                StoreGameSystem.Data.Status = StoreStatus.Loading;
+            }
+            
 //            Debug.Log("LoadDataByType " + type + " " + storeName + " Loading");
             StoreGameSystem.Data.status.Add(type.ToString(), StoreStatus.Loading);
 
@@ -36,15 +33,14 @@ namespace  GAME
             callBack?.Invoke(data);
         }
 
-        private void SaveStoreData()
-        {
-            Debug.Log("StoreData Saving ===>>>");
-//            DOVirtual.DelayedCall(0.01f, () => { StoreSystem.Data.Status = StoreStatus.Saving; });
-            StoreGameSystem.Data.Status = StoreStatus.Saving;
-        }
-
         private void SaveDataByType<T>(T data, string storeName, Action callBack)
         {
+            if (StoreGameSystem.Data.Status != StoreStatus.Saving)
+            {
+                Debug.Log("StoreData Saving ===>>>");
+                StoreGameSystem.Data.Status = StoreStatus.Saving;
+            }
+            
 //            Debug.Log("SaveDataByType " + data.GetType() + " " + storeName + " Saving");
             string key = data.GetType().ToString();
             if(StoreGameSystem.Data.status.ContainsKey(key)) return;

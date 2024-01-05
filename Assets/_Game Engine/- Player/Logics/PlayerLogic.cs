@@ -9,6 +9,13 @@ namespace  GAME
         private void Awake()
         {
             _player = PlayerSystem.Data.CurrentPlayer;
+            
+            LevelSystem.Events.LevelLoaded += LevelLoaded;
+        }
+
+        private void LevelLoaded()
+        {
+            _player.Moves = LevelSystem.Data.CurrentLevel.Preset.StartMoves;
         }
     }
 }

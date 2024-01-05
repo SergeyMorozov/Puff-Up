@@ -39,6 +39,8 @@ namespace GAME
             {
                 PlayerSystem.Data.PlayerStore = (PlayerStore) data;
             }
+            
+            PlayerSystem.Data.CurrentPlayer.Money = PlayerSystem.Data.PlayerStore.Money;
         }
 
         private void SaveStoreData()

@@ -7,6 +7,7 @@ namespace GAME
 {
     public class LevelPreset : ScriptableObject
     {
+        public int StartMoves;
         public List<CupObject> Cups;
     }
 }

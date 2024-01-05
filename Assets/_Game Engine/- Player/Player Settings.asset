@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StoreName: player_data
   ClearSavedData: 0
-  Money: 1200
+  Money: 20
   Crystal: 0

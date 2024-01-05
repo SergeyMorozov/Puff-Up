@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7585705936160577072}
   - component: {fileID: 1176843359127867752}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 7393695021779253185}
   - component: {fileID: 7373361258332868811}
   - component: {fileID: 1215149422715070931}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 5172186944635848720}
   - component: {fileID: 3643827736252223282}
   - component: {fileID: -2678378917717099070}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fade Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6682135559367526450}
   - component: {fileID: 9167316322995308706}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fade View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
