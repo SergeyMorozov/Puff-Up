@@ -9,13 +9,16 @@ namespace  GAME
         private void Awake()
         {
             LevelSystem.Events.LevelLoad += LevelLoad;
+            LevelSystem.Events.LevelNext += LevelNext;
         }
 
         private void LevelLoad()
         {
             LevelSystem.Data.IsWin = false;
+
+            int index = GetLevelIndex();
+            Debug.Log("LevelLoad (index) " + index);
             
-            int index = LevelSystem.Data.LevelNumber - 1;
             LevelPreset levelPreset = LevelSystem.Settings.Levels[index]; 
             LevelObject level = Tools.AddObject<LevelObject>(null);
             level.Preset = levelPreset;
@@ -24,7 +27,16 @@ namespace  GAME
             SetCups(level);
             
             LevelSystem.Data.CurrentLevel = level;
+            LevelSystem.Data.IsPlay = true;
             LevelSystem.Events.LevelLoaded?.Invoke();
+        }
+
+        private void LevelNext()
+        {
+            LevelSystem.Events.LevelClear?.Invoke();
+            
+            LevelSystem.Data.LevelNumber++;
+            LevelLoad();
         }
 
         private void SetCups(LevelObject level)
@@ -76,6 +88,7 @@ namespace  GAME
 
             CupSystem.Data.Index = 0;
             CupSystem.Data.CurrentCup = CupSystem.Data.Cups[0];
+            CameraSystem.Events.SetCameraPoint?.Invoke(CupSystem.Data.CurrentCup.Ref.CameraPoint.position, false);
         }
 
         private void SetShapesSizeZero(CupObject cup)
@@ -86,6 +99,20 @@ namespace  GAME
                 shape.transform.localScale = Vector3.zero;
             }
         }
+
+        private int GetLevelIndex()
+        {
+            if (LevelSystem.Data.LevelNumber <= LevelSystem.Settings.Levels.Count)
+            {
+                return LevelSystem.Data.LevelNumber - 1;
+            }
+
+            int index = (LevelSystem.Data.LevelNumber - LevelSystem.Settings.StartLevelLoop) %
+                (LevelSystem.Settings.Levels.Count - LevelSystem.Settings.StartLevelLoop + 1) +
+                LevelSystem.Settings.StartLevelLoop - 1;
+            return index;
+        }
+        
     }
 }
 

@@ -24,6 +24,8 @@ namespace  GAME
         {
             RaycastHit hit;
 
+            if(!LevelSystem.Data.IsPlay) return;
+            
             if (Input.GetMouseButtonDown(0))
             {
                 if(BallSystem.Data.CreatedBall != null) return;
@@ -53,7 +55,7 @@ namespace  GAME
                 BallSystem.Data.CreatedBall = ball;
             }
 
-            if (Input.GetMouseButtonUp(0))
+            if (_isCreate && Input.GetMouseButtonUp(0))
             {
                 _isCreate = false;
 

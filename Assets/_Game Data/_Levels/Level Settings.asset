@@ -17,3 +17,5 @@ MonoBehaviour:
   StartLevelLoop: 2
   Levels:
   - {fileID: 11400000, guid: 4b5a6b4b6c8894d43b8f5b8c9ed1116d, type: 2}
+  - {fileID: 11400000, guid: 51611bd652ab2b7449bc77f07352995e, type: 2}
+  - {fileID: 11400000, guid: c449334a10c7f4d43a30cdb22df7d302, type: 2}

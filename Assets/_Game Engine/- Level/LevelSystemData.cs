@@ -11,11 +11,10 @@ namespace GAME
         [Space]
         public LevelLogicSaveLoad.LevelStore LevelStore;
         public int LevelNumber;
-        public int LevelCount;
-        public int LevelLoop;
 
         public float TimeStart;
         public float Progress;    // Range 0-100
+        public bool IsPlay;
         public bool IsWin;
     }
     

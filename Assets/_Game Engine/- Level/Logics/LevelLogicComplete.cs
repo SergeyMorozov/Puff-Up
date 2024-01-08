@@ -17,6 +17,7 @@ namespace  GAME
         {
             if(_player.Moves <= 0 && CupSystem.Data.Index < CupSystem.Data.Cups.Count - 1) return;
 
+            LevelSystem.Data.IsPlay = false;
             LevelSystem.Data.IsWin = true;
             LevelSystem.Events.LevelComplete?.Invoke();
         }

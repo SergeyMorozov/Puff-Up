@@ -8,7 +8,6 @@ namespace GAME
         public struct LevelStore
         {
             public int LevelNumber;
-            public int LevelCount;
         }
 
         private void Awake()
@@ -36,7 +35,6 @@ namespace GAME
                 LevelStore levelStore = (LevelStore) data;
                 LevelSystem.Data.LevelStore = levelStore;
                 LevelSystem.Data.LevelNumber = levelStore.LevelNumber;
-                LevelSystem.Data.LevelCount = levelStore.LevelCount;
             }
         }
 
@@ -45,7 +43,6 @@ namespace GAME
             LevelStore levelStore = new LevelStore
             {
                 LevelNumber = LevelSystem.Data.LevelNumber,
-                LevelCount = LevelSystem.Data.LevelCount,
             };
             StoreGameSystem.Events.SaveDataByType?.Invoke(levelStore, LevelSystem.Settings.StoreName, DataByTypeSaved);
         }

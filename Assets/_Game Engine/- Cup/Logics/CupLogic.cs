@@ -7,6 +7,12 @@ namespace  GAME
         private void Awake()
         {
             LevelSystem.Events.NextCup += NextCup;
+            LevelSystem.Events.LevelClear += LevelClear;
+        }
+
+        private void LevelClear()
+        {
+            CupSystem.Data.Cups.Clear();
         }
 
         private void NextCup()

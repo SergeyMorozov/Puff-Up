@@ -16,10 +16,12 @@ namespace  GAME
         {
             _view = LevelFinishCanvas.Instance.View;
             _view.PanelComplete.SetActive(false);
+            _view.ButtonNext.onClick.AddListener(OnClickLevelNext);
 
             _player = PlayerSystem.Data.CurrentPlayer;
             
             LevelSystem.Events.LevelComplete += LevelComplete;
+            LevelSystem.Events.LevelNext += LevelNext;
         }
 
         private void LevelComplete()
@@ -27,6 +29,7 @@ namespace  GAME
             Show();
             
             _view.PanelComplete.SetActive(true);
+            _view.TextLevel.text = "Уровень " + LevelSystem.Data.LevelNumber;
         }
 
         private void Show()
@@ -49,7 +52,16 @@ namespace  GAME
             
         }
 
+        private void OnClickLevelNext()
+        {
+            GameSystem.Events.GameActionWithFade?.Invoke(null, LevelSystem.Events.LevelNext);
+        }
         
+        private void LevelNext()
+        {
+            Hide();
+        }
+
     }
 }
 
