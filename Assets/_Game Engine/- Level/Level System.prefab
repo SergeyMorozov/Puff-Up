@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -5205370224375424876}
   - component: {fileID: -4275084181711099569}
   - component: {fileID: -5919376522472397772}
-  - component: {fileID: -1380463779503809891}
   m_Layer: 0
   m_Name: Level System
   m_TagString: Untagged
@@ -91,17 +90,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc70ad74808e1244f8fd2309a6f317ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-1380463779503809891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9221666803162759394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f85cb25ead55acd49b10e8323f34d7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartMoves: 10
   AddMoves: 5
-  Chains: 140000001e00000028000000
+  Chains: 020000000300000004000000
   Cups:
   - {fileID: 4352837374751634617, guid: 16bcd06ea30438e4fbf285db47bf5916, type: 3}
   - {fileID: 4352837374751634617, guid: c11a20190c23080448dcda2cd733cb85, type: 3}

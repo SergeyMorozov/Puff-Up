@@ -8,6 +8,7 @@ namespace GAME
         public CameraPreset Preset;
         public CameraRef Ref;
 
+        public int CamIndex;
         public List<GameObject> Cams;
     }
 }

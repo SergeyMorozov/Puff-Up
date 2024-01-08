@@ -73,7 +73,7 @@ namespace  GAME
                 ball.transform.localScale *= 0.95f;
                 BallSystem.Data.Balls.Add(ball);
 
-                _player.Money += ball.Value;
+                _player.Money += (int)ball.Value / 2;
                 
                 BallSystem.Data.CreatedBall = null;
                 BallSystem.Events.BallCreated?.Invoke(ball);

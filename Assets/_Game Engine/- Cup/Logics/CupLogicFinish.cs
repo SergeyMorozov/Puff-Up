@@ -5,25 +5,16 @@ using UnityEngine;
 
 namespace  GAME
 {
-    public class LevelLogicFinish : MonoBehaviour
+    public class CupLogicFinish : MonoBehaviour
     {
-        private LevelObject _level;
-        private float _timerCheckFinish;
-
-        private float _timer;
+        private float _timerRemoveShapes;
         private List<Transform> _shapes;
         
         private void Awake()
         {
             _shapes = new List<Transform>();
             
-            LevelSystem.Events.LevelLoaded += LevelLoaded;
             ChainSystem.Events.ChainDestroy += ChainDestroy;
-        }
-
-        private void LevelLoaded()
-        {
-            _level = LevelSystem.Data.CurrentLevel;
         }
 
         private void ChainDestroy(ChainObject chain)
@@ -37,13 +28,18 @@ namespace  GAME
             foreach (BallObject ball in BallSystem.Data.Balls)
             {
                 ball.Ref.Rigidbody.gravityScale = -0.1f;
-                _shapes.Add(ball.transform);
+                // _shapes.Add(ball.transform);
             }
             
-            _timer = 1;
+            _timerRemoveShapes = 1;
             
-            LevelSystem.Events.NextCup?.Invoke();
+            if (CupSystem.Data.Index >= CupSystem.Data.Cups.Count - 1)
+            {
+                LevelSystem.Events.LevelComplete?.Invoke();
+                return;
+            }
 
+            LevelSystem.Events.NextCup?.Invoke();
             StartCoroutine(ShowShapeNextCup());
         }
 
@@ -75,12 +71,12 @@ namespace  GAME
 
         private void Update()
         {
-            if (_timer <= 0) return;
+            if (_timerRemoveShapes <= 0) return;
 
-            _timer -= Time.deltaTime / 2;
-            if (_timer <= 0)
+            _timerRemoveShapes -= Time.deltaTime / 2;
+            if (_timerRemoveShapes <= 0)
             {
-                _timer = 0;
+                _timerRemoveShapes = 0;
                 
                 foreach (BallObject ball in BallSystem.Data.Balls)
                 {
@@ -88,10 +84,15 @@ namespace  GAME
                 }
                 BallSystem.Data.Balls.Clear();
             }
+            
+            foreach (BallObject ball in BallSystem.Data.Balls)
+            {
+                ball.transform.localScale = Vector3.one * ball.Radius * 2 * _timerRemoveShapes;
+            }
          
             foreach (Transform shape in _shapes)
             {
-                shape.localScale = new Vector3(_timer, _timer, 1);
+                shape.localScale = new Vector3(_timerRemoveShapes, _timerRemoveShapes, 1);
             }
         }
     }
