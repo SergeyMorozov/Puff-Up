@@ -35,7 +35,7 @@ namespace  GAME
             
             if (CupSystem.Data.Index >= CupSystem.Data.Cups.Count - 1)
             {
-                LevelSystem.Events.LevelComplete?.Invoke();
+                LevelSystem.Events.LevelFinish?.Invoke();
                 return;
             }
 
