@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 namespace  GAME
@@ -17,11 +15,18 @@ namespace  GAME
             _view = LevelFinishCanvas.Instance.View;
             _view.PanelComplete.SetActive(false);
             _view.ButtonNext.onClick.AddListener(OnClickLevelNext);
+            _view.ButtonContinue.onClick.AddListener(OnClickLevelContinue);
+            _view.ButtonRestart.onClick.AddListener(OnClickLevelRestart);
 
             _player = PlayerSystem.Data.CurrentPlayer;
             
             LevelSystem.Events.LevelComplete += LevelComplete;
-            LevelSystem.Events.LevelNext += LevelNext;
+            LevelSystem.Events.LevelFail += LevelFail;
+            
+            LevelSystem.Events.LevelNext += Hide;
+            LevelSystem.Events.LevelRestart += Hide;
+            LevelSystem.Events.LevelContinue += Hide;
+            
         }
 
         private void LevelComplete()
@@ -30,6 +35,13 @@ namespace  GAME
             
             _view.PanelComplete.SetActive(true);
             _view.TextLevel.text = "Уровень " + LevelSystem.Data.LevelNumber;
+        }
+
+        private void LevelFail()
+        {
+            Show();
+            
+            _view.PanelFail.SetActive(true);
         }
 
         private void Show()
@@ -44,6 +56,7 @@ namespace  GAME
             _show = false;
             
             _view.PanelComplete.SetActive(false);
+            _view.PanelFail.SetActive(false);
         }
 
         private void Update()
@@ -57,9 +70,14 @@ namespace  GAME
             GameSystem.Events.GameActionWithFade?.Invoke(null, LevelSystem.Events.LevelNext);
         }
         
-        private void LevelNext()
+        private void OnClickLevelContinue()
         {
-            Hide();
+            LevelSystem.Events.LevelContinue?.Invoke();
+        }
+
+        private void OnClickLevelRestart()
+        {
+            GameSystem.Events.GameActionWithFade?.Invoke(null, LevelSystem.Events.LevelRestart);
         }
 
     }

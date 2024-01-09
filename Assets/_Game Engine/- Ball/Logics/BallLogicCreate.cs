@@ -34,7 +34,7 @@ namespace  GAME
                 if(!checkPlace.IsFree) return;
 
                 _isCreate = true;
-                BallObject ball = Tools.AddObject<BallObject>(BallSystem.Settings.Balls[0], null);
+                BallObject ball = Tools.AddObject<BallObject>(BallSystem.Settings.Balls[0], LevelSystem.Data.CurrentLevel.transform);
                 ball.name = BallSystem.Settings.Balls[0].name;
                 ball.transform.position = checkPlace.Position;
                 ball.ValueMax = 1;

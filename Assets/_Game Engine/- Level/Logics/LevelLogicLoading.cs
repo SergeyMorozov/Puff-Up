@@ -10,6 +10,8 @@ namespace  GAME
         {
             LevelSystem.Events.LevelLoad += LevelLoad;
             LevelSystem.Events.LevelNext += LevelNext;
+            LevelSystem.Events.LevelRestart += LevelRestart;
+            LevelSystem.Events.LevelContinue += LevelContinue;
         }
 
         private void LevelLoad()
@@ -37,6 +39,18 @@ namespace  GAME
             
             LevelSystem.Data.LevelNumber++;
             LevelLoad();
+        }
+
+        private void LevelRestart()
+        {
+            LevelSystem.Events.LevelClear?.Invoke();
+            LevelLoad();
+        }
+
+        private void LevelContinue()
+        {
+            PlayerSystem.Data.CurrentPlayer.Moves += 3;
+            LevelSystem.Data.IsPlay = true;
         }
 
         private void SetCups(LevelObject level)

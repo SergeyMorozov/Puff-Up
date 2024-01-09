@@ -24,6 +24,12 @@ namespace  GAME
         private void BallCreated(BallObject ball)
         {
             _player.Moves--;
+
+            if (_player.Moves < 0 && LevelSystem.Data.IsPlay)
+            {
+                _player.Moves = 0;
+                LevelSystem.Events.LevelFinish?.Invoke();
+            }
         }
 
         private void CupLoaded()
